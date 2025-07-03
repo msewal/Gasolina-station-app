@@ -1,0 +1,1494 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EmguCV.3.1.0.1\build\EmguCV.props" Condition="Exists('packages\EmguCV.3.1.0.1\build\EmguCV.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5A6BCA7F-EAD0-4C50-8D78-8784E9769D52}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GASOLINA</RootNamespace>
+    <AssemblyName>GASOLINA</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.Platform.NetStandard, Version=4.5.5.4823, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>packages\Emgu.CV.4.5.5.4823\lib\netstandard2.0\Emgu.CV.Platform.NetStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI.GL, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.UI.GL.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.QRCode, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MessagingToolkit.QRCode.1.3.0\lib\MessagingToolkit.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>packages\OpenTK.1.1.2225.0\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>packages\OpenTK.GLControl.1.1.2225.0\lib\net20\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>packages\QRCoder.1.4.3\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Primitives.4.3.0\lib\net45\System.Drawing.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <HintPath>packages\ZedGraph.5.1.5\lib\ZedGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.8\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.8\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Akaryakıt.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form10.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form10.Designer.cs">
+      <DependentUpon>Form10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form11.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form11.Designer.cs">
+      <DependentUpon>Form11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form12.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form12.Designer.cs">
+      <DependentUpon>Form12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form13.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form13.Designer.cs">
+      <DependentUpon>Form13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form14.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form14.Designer.cs">
+      <DependentUpon>Form14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form15.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form15.Designer.cs">
+      <DependentUpon>Form15.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form17.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form17.Designer.cs">
+      <DependentUpon>Form17.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form18.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form18.Designer.cs">
+      <DependentUpon>Form18.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\WindowsFormsApp3\Form19.cs">
+      <SubType>Form</SubType>
+      <Link>Form19.cs</Link>
+    </Compile>
+    <Compile Include="..\WindowsFormsApp3\Form19.Designer.cs">
+      <DependentUpon>Form19.cs</DependentUpon>
+      <Link>Form19.Designer.cs</Link>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form20.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form20.Designer.cs">
+      <DependentUpon>Form20.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form21.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form21.Designer.cs">
+      <DependentUpon>Form21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form22.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form22.Designer.cs">
+      <DependentUpon>Form22.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form23.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form23.Designer.cs">
+      <DependentUpon>Form23.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form24.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form24.Designer.cs">
+      <DependentUpon>Form24.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form25.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form25.Designer.cs">
+      <DependentUpon>Form25.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form26.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form26.Designer.cs">
+      <DependentUpon>Form26.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form27.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form27.Designer.cs">
+      <DependentUpon>Form27.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form4.Designer.cs">
+      <DependentUpon>Form4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form5.Designer.cs">
+      <DependentUpon>Form5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form6.Designer.cs">
+      <DependentUpon>Form6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form7.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form7.Designer.cs">
+      <DependentUpon>Form7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form8.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form8.Designer.cs">
+      <DependentUpon>Form8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form9.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form9.Designer.cs">
+      <DependentUpon>Form9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKategori.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKategori.Designer.cs">
+      <DependentUpon>frmKategori.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMarka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMarka.Designer.cs">
+      <DependentUpon>frmMarka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUrunlistele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUrunlistele.Designer.cs">
+      <DependentUpon>frmUrunlistele.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYeni.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYeni.Designer.cs">
+      <DependentUpon>frmYeni.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmŞifre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmŞifre.Designer.cs">
+      <DependentUpon>frmŞifre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet15.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet16.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet17.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet17.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet18.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet18.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet19.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet19.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet20.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet20.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet21.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet22.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet22.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet23.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet23.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet24.cs">
+      <DependentUpon>GASOLINADataSet24.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet24.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet24.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet25.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet25.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet26.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet26.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet27.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet27.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet28.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet28.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet29.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet29.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet30.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet30.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet31.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet31.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet32.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet32.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet33.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet33.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet34.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet34.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet35.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet35.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet36.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet36.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet37.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet37.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet38.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet38.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet39.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet39.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet40.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet40.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet41.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet41.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet42.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet42.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet43.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet43.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet44.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet44.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet45.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet45.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet46.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet46.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet47.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet47.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet48.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet48.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet49.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet49.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet50.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet50.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet51.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet51.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet52.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet52.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet53.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet53.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet54.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet54.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet55.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet55.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet56.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet56.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet57.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet57.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet58.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet58.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet59.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet59.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet60.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet60.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet61.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet61.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GASOLINADataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GASOLINADataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ilkForm10.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ilkForm10.Designer.cs">
+      <DependentUpon>ilkForm10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kullanıcı_Form.cs" />
+    <Compile Include="Kullanıcı_Formu.cs" />
+    <Compile Include="Müşteri Listele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Müşteri Listele.Designer.cs">
+      <DependentUpon>Müşteri Listele.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SatısListele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SatısListele.Designer.cs">
+      <DependentUpon>SatısListele.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ürün Ekle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ürün Ekle.Designer.cs">
+      <DependentUpon>Ürün Ekle.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form10.resx">
+      <DependentUpon>Form10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form11.resx">
+      <DependentUpon>Form11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form12.resx">
+      <DependentUpon>Form12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form13.resx">
+      <DependentUpon>Form13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form14.resx">
+      <DependentUpon>Form14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form15.resx">
+      <DependentUpon>Form15.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form17.resx">
+      <DependentUpon>Form17.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form18.resx">
+      <DependentUpon>Form18.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\WindowsFormsApp3\Form19.resx">
+      <DependentUpon>Form19.cs</DependentUpon>
+      <Link>Form19.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form20.resx">
+      <DependentUpon>Form20.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form21.resx">
+      <DependentUpon>Form21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form22.resx">
+      <DependentUpon>Form22.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form23.resx">
+      <DependentUpon>Form23.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form24.resx">
+      <DependentUpon>Form24.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form25.resx">
+      <DependentUpon>Form25.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form26.resx">
+      <DependentUpon>Form26.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form27.resx">
+      <DependentUpon>Form27.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form4.resx">
+      <DependentUpon>Form4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form5.resx">
+      <DependentUpon>Form5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form6.resx">
+      <DependentUpon>Form6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form7.resx">
+      <DependentUpon>Form7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form8.resx">
+      <DependentUpon>Form8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form9.resx">
+      <DependentUpon>Form9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKategori.resx">
+      <DependentUpon>frmKategori.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMarka.resx">
+      <DependentUpon>frmMarka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUrunlistele.resx">
+      <DependentUpon>frmUrunlistele.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYeni.resx">
+      <DependentUpon>frmYeni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmŞifre.resx">
+      <DependentUpon>frmŞifre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ilkForm10.resx">
+      <DependentUpon>ilkForm10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Müşteri Listele.resx">
+      <DependentUpon>Müşteri Listele.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="SatısListele.resx">
+      <DependentUpon>SatısListele.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ürün Ekle.resx">
+      <DependentUpon>Ürün Ekle.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="GASOLINADataSet.xsc">
+      <DependentUpon>GASOLINADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet.xss">
+      <DependentUpon>GASOLINADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet1.xsc">
+      <DependentUpon>GASOLINADataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet1.xss">
+      <DependentUpon>GASOLINADataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet10.xsc">
+      <DependentUpon>GASOLINADataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet10.xss">
+      <DependentUpon>GASOLINADataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet11.xsc">
+      <DependentUpon>GASOLINADataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet11.xss">
+      <DependentUpon>GASOLINADataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet12.xsc">
+      <DependentUpon>GASOLINADataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet12.xss">
+      <DependentUpon>GASOLINADataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet13.xsc">
+      <DependentUpon>GASOLINADataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet13.xss">
+      <DependentUpon>GASOLINADataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet14.xsc">
+      <DependentUpon>GASOLINADataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet14.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet14.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet14.xss">
+      <DependentUpon>GASOLINADataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet15.xsc">
+      <DependentUpon>GASOLINADataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet15.xss">
+      <DependentUpon>GASOLINADataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet16.xsc">
+      <DependentUpon>GASOLINADataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet16.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet16.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet16.xss">
+      <DependentUpon>GASOLINADataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet17.xsc">
+      <DependentUpon>GASOLINADataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet17.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet17.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet17.xss">
+      <DependentUpon>GASOLINADataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet18.xsc">
+      <DependentUpon>GASOLINADataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet18.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet18.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet18.xss">
+      <DependentUpon>GASOLINADataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet19.xsc">
+      <DependentUpon>GASOLINADataSet19.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet19.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet19.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet19.xss">
+      <DependentUpon>GASOLINADataSet19.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet2.xsc">
+      <DependentUpon>GASOLINADataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet2.xss">
+      <DependentUpon>GASOLINADataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet20.xsc">
+      <DependentUpon>GASOLINADataSet20.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet20.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet20.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet20.xss">
+      <DependentUpon>GASOLINADataSet20.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet21.xsc">
+      <DependentUpon>GASOLINADataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet21.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet21.xss">
+      <DependentUpon>GASOLINADataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet22.xsc">
+      <DependentUpon>GASOLINADataSet22.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet22.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet22.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet22.xss">
+      <DependentUpon>GASOLINADataSet22.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet23.xsc">
+      <DependentUpon>GASOLINADataSet23.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet23.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet23.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet23.xss">
+      <DependentUpon>GASOLINADataSet23.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet24.xsc">
+      <DependentUpon>GASOLINADataSet24.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet24.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet24.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet24.xss">
+      <DependentUpon>GASOLINADataSet24.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet25.xsc">
+      <DependentUpon>GASOLINADataSet25.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet25.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet25.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet25.xss">
+      <DependentUpon>GASOLINADataSet25.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet26.xsc">
+      <DependentUpon>GASOLINADataSet26.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet26.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet26.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet26.xss">
+      <DependentUpon>GASOLINADataSet26.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet27.xsc">
+      <DependentUpon>GASOLINADataSet27.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet27.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet27.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet27.xss">
+      <DependentUpon>GASOLINADataSet27.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet28.xsc">
+      <DependentUpon>GASOLINADataSet28.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet28.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet28.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet28.xss">
+      <DependentUpon>GASOLINADataSet28.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet29.xsc">
+      <DependentUpon>GASOLINADataSet29.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet29.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet29.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet29.xss">
+      <DependentUpon>GASOLINADataSet29.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet3.xsc">
+      <DependentUpon>GASOLINADataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet3.xss">
+      <DependentUpon>GASOLINADataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet30.xsc">
+      <DependentUpon>GASOLINADataSet30.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet30.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet30.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet30.xss">
+      <DependentUpon>GASOLINADataSet30.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet31.xsc">
+      <DependentUpon>GASOLINADataSet31.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet31.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet31.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet31.xss">
+      <DependentUpon>GASOLINADataSet31.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet32.xsc">
+      <DependentUpon>GASOLINADataSet32.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet32.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet32.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet32.xss">
+      <DependentUpon>GASOLINADataSet32.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet33.xsc">
+      <DependentUpon>GASOLINADataSet33.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet33.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet33.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet33.xss">
+      <DependentUpon>GASOLINADataSet33.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet34.xsc">
+      <DependentUpon>GASOLINADataSet34.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet34.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet34.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet34.xss">
+      <DependentUpon>GASOLINADataSet34.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet35.xsc">
+      <DependentUpon>GASOLINADataSet35.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet35.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet35.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet35.xss">
+      <DependentUpon>GASOLINADataSet35.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet36.xsc">
+      <DependentUpon>GASOLINADataSet36.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet36.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet36.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet36.xss">
+      <DependentUpon>GASOLINADataSet36.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet37.xsc">
+      <DependentUpon>GASOLINADataSet37.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet37.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet37.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet37.xss">
+      <DependentUpon>GASOLINADataSet37.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet38.xsc">
+      <DependentUpon>GASOLINADataSet38.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet38.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet38.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet38.xss">
+      <DependentUpon>GASOLINADataSet38.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet39.xsc">
+      <DependentUpon>GASOLINADataSet39.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet39.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet39.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet39.xss">
+      <DependentUpon>GASOLINADataSet39.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet4.xsc">
+      <DependentUpon>GASOLINADataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet4.xss">
+      <DependentUpon>GASOLINADataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet40.xsc">
+      <DependentUpon>GASOLINADataSet40.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet40.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet40.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet40.xss">
+      <DependentUpon>GASOLINADataSet40.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet41.xsc">
+      <DependentUpon>GASOLINADataSet41.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet41.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet41.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet41.xss">
+      <DependentUpon>GASOLINADataSet41.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet42.xsc">
+      <DependentUpon>GASOLINADataSet42.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet42.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet42.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet42.xss">
+      <DependentUpon>GASOLINADataSet42.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet43.xsc">
+      <DependentUpon>GASOLINADataSet43.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet43.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet43.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet43.xss">
+      <DependentUpon>GASOLINADataSet43.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet44.xsc">
+      <DependentUpon>GASOLINADataSet44.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet44.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet44.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet44.xss">
+      <DependentUpon>GASOLINADataSet44.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet45.xsc">
+      <DependentUpon>GASOLINADataSet45.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet45.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet45.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet45.xss">
+      <DependentUpon>GASOLINADataSet45.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet46.xsc">
+      <DependentUpon>GASOLINADataSet46.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet46.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet46.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet46.xss">
+      <DependentUpon>GASOLINADataSet46.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet47.xsc">
+      <DependentUpon>GASOLINADataSet47.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet47.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet47.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet47.xss">
+      <DependentUpon>GASOLINADataSet47.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet48.xsc">
+      <DependentUpon>GASOLINADataSet48.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet48.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet48.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet48.xss">
+      <DependentUpon>GASOLINADataSet48.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet49.xsc">
+      <DependentUpon>GASOLINADataSet49.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet49.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet49.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet49.xss">
+      <DependentUpon>GASOLINADataSet49.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet5.xsc">
+      <DependentUpon>GASOLINADataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet5.xss">
+      <DependentUpon>GASOLINADataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet50.xsc">
+      <DependentUpon>GASOLINADataSet50.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet50.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet50.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet50.xss">
+      <DependentUpon>GASOLINADataSet50.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet51.xsc">
+      <DependentUpon>GASOLINADataSet51.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet51.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet51.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet51.xss">
+      <DependentUpon>GASOLINADataSet51.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet52.xsc">
+      <DependentUpon>GASOLINADataSet52.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet52.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet52.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet52.xss">
+      <DependentUpon>GASOLINADataSet52.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet53.xsc">
+      <DependentUpon>GASOLINADataSet53.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet53.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet53.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet53.xss">
+      <DependentUpon>GASOLINADataSet53.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet54.xsc">
+      <DependentUpon>GASOLINADataSet54.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet54.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet54.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet54.xss">
+      <DependentUpon>GASOLINADataSet54.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet55.xsc">
+      <DependentUpon>GASOLINADataSet55.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet55.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet55.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet55.xss">
+      <DependentUpon>GASOLINADataSet55.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet56.xsc">
+      <DependentUpon>GASOLINADataSet56.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet56.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet56.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet56.xss">
+      <DependentUpon>GASOLINADataSet56.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet57.xsc">
+      <DependentUpon>GASOLINADataSet57.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet57.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet57.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet57.xss">
+      <DependentUpon>GASOLINADataSet57.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet58.xsc">
+      <DependentUpon>GASOLINADataSet58.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet58.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet58.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet58.xss">
+      <DependentUpon>GASOLINADataSet58.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet59.xsc">
+      <DependentUpon>GASOLINADataSet59.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet59.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet59.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet59.xss">
+      <DependentUpon>GASOLINADataSet59.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet6.xsc">
+      <DependentUpon>GASOLINADataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet6.xss">
+      <DependentUpon>GASOLINADataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet60.xsc">
+      <DependentUpon>GASOLINADataSet60.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet60.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet60.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet60.xss">
+      <DependentUpon>GASOLINADataSet60.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet61.xsc">
+      <DependentUpon>GASOLINADataSet61.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet61.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet61.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet61.xss">
+      <DependentUpon>GASOLINADataSet61.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet7.xsc">
+      <DependentUpon>GASOLINADataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet7.xss">
+      <DependentUpon>GASOLINADataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet8.xsc">
+      <DependentUpon>GASOLINADataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet8.xss">
+      <DependentUpon>GASOLINADataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet9.xsc">
+      <DependentUpon>GASOLINADataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="GASOLINADataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GASOLINADataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GASOLINADataSet9.xss">
+      <DependentUpon>GASOLINADataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 ve x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 </ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EmguCV.3.1.0.1\build\EmguCV.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EmguCV.3.1.0.1\build\EmguCV.props'))" />
+    <Error Condition="!Exists('packages\EmguCV.3.1.0.1\build\EmguCV.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EmguCV.3.1.0.1\build\EmguCV.targets'))" />
+  </Target>
+  <Import Project="packages\EmguCV.3.1.0.1\build\EmguCV.targets" Condition="Exists('packages\EmguCV.3.1.0.1\build\EmguCV.targets')" />
+</Project>

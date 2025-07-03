@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="GASOLINADataSet40" targetNamespace="http://tempuri.org/GASOLINADataSet40.xsd" xmlns:mstns="http://tempuri.org/GASOLINADataSet40.xsd" xmlns="http://tempuri.org/GASOLINADataSet40.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="GASOLINAConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="GASOLINAConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GASOLINA.Properties.Settings.GlobalReference.Default.GASOLINAConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sepetTableAdapter" GeneratorDataComponentClassName="sepetTableAdapter" Name="sepet" UserDataComponentName="sepetTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="GASOLINAConnectionString (Settings)" DbObjectName="GASOLINA.dbo.sepet" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT kart, barkodno, urunadi, miktari, satisfiyati, toplamfiyat FROM dbo.sepet</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="kart" DataSetColumn="kart" />
+              <Mapping SourceColumn="barkodno" DataSetColumn="barkodno" />
+              <Mapping SourceColumn="urunadi" DataSetColumn="urunadi" />
+              <Mapping SourceColumn="miktari" DataSetColumn="miktari" />
+              <Mapping SourceColumn="satisfiyati" DataSetColumn="satisfiyati" />
+              <Mapping SourceColumn="toplamfiyat" DataSetColumn="toplamfiyat" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="GASOLINADataSet40" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="GASOLINADataSet40" msprop:Generator_DataSetName="GASOLINADataSet40">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="sepet" msprop:Generator_RowEvHandlerName="sepetRowChangeEventHandler" msprop:Generator_RowDeletedName="sepetRowDeleted" msprop:Generator_RowDeletingName="sepetRowDeleting" msprop:Generator_RowEvArgName="sepetRowChangeEvent" msprop:Generator_TablePropName="sepet" msprop:Generator_RowChangedName="sepetRowChanged" msprop:Generator_RowChangingName="sepetRowChanging" msprop:Generator_TableClassName="sepetDataTable" msprop:Generator_RowClassName="sepetRow" msprop:Generator_TableVarName="tablesepet" msprop:Generator_UserTableName="sepet">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kart" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnPropNameInRow="kart" msprop:Generator_ColumnPropNameInTable="kartColumn" msprop:Generator_ColumnVarNameInTable="columnkart" msprop:Generator_UserColumnName="kart" type="xs:anyType" />
+              <xs:element name="barkodno" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnPropNameInRow="barkodno" msprop:Generator_ColumnPropNameInTable="barkodnoColumn" msprop:Generator_ColumnVarNameInTable="columnbarkodno" msprop:Generator_UserColumnName="barkodno" type="xs:anyType" />
+              <xs:element name="urunadi" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnPropNameInRow="urunadi" msprop:Generator_ColumnPropNameInTable="urunadiColumn" msprop:Generator_ColumnVarNameInTable="columnurunadi" msprop:Generator_UserColumnName="urunadi" type="xs:anyType" />
+              <xs:element name="miktari" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnPropNameInRow="miktari" msprop:Generator_ColumnPropNameInTable="miktariColumn" msprop:Generator_ColumnVarNameInTable="columnmiktari" msprop:Generator_UserColumnName="miktari" type="xs:anyType" />
+              <xs:element name="satisfiyati" msprop:Generator_ColumnPropNameInRow="satisfiyati" msprop:Generator_ColumnPropNameInTable="satisfiyatiColumn" msprop:Generator_ColumnVarNameInTable="columnsatisfiyati" msprop:Generator_UserColumnName="satisfiyati" type="xs:decimal" />
+              <xs:element name="toplamfiyat" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnPropNameInRow="toplamfiyat" msprop:Generator_ColumnPropNameInTable="toplamfiyatColumn" msprop:Generator_ColumnVarNameInTable="columntoplamfiyat" msprop:Generator_UserColumnName="toplamfiyat" type="xs:anyType" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
